@@ -11,5 +11,4 @@ x = np.linspace(0, 10, 100)
 y = x**2
 ax.plot(x, y)
 fig.savefig(bio, format="png", dpi=100)
-# sys.stdout.buffer.write(bio.getbuffer())
-sys.stdout.buffer.write(base64.b64encode(bio.getvalue()))
+sys.stdout.buffer.write(bio.getvalue())
