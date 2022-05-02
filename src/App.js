@@ -2,11 +2,12 @@ import './App.css';
 import axios from 'axios';
 import { useState } from 'react';
 
+import Image from './components/Plot.js';
+
 function App() {
-  getData();
   return (
     <div className="App">
-      <img src={`http://localhost:4000`} />
+      <Image />
     </div>
   );
 }
