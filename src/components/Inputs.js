@@ -9,6 +9,8 @@ function Inputs(props) {
 
   const updateImage = (e) => {
     e.preventDefault();
+    sessionStorage.setItem("mean", mean);
+    sessionStorage.setItem("std", std);
     props.setMean(mean);
     props.setStd(std);
   }
@@ -22,7 +24,7 @@ function Inputs(props) {
               <label htmlFor="mean_input">Input mean: </label>
             </td>
             <td className="input_cell">
-              <input type="number" name="mean_input" step="0.1" onChange={(e) => {setMean(e.target.value)}}/>
+              <input type="number" name="mean_input" step="0.1" defaultValue={mean} onChange={(e) => {setMean(e.target.value)}}/>
             </td>
           </tr>
           <tr className="input_table">
@@ -30,7 +32,7 @@ function Inputs(props) {
               <label htmlFor="std_input">Input standard deviation: </label>
             </td>
             <td className="input_cell">
-              <input type="number" name="std_input" step="0.1" onChange={(e) => {setStd(e.target.value)}} />
+              <input type="number" name="std_input" step="0.1" defaultValue={std} onChange={(e) => {setStd(e.target.value)}} />
             </td>
           </tr>
         </tbody>

@@ -4,13 +4,13 @@ import Plot from './components/Plot.js';
 import Inputs from './components/Inputs.js';
 
 function App() {
-  const [mean, setMean] = useState(0);
-  const [std, setStd] = useState(1);
+  const [mean, setMean] = useState((sessionStorage.getItem("mean") ? sessionStorage.getItem("mean") : 0));
+  const [std, setStd] = useState((sessionStorage.getItem("std") ? sessionStorage.getItem("std") : 1));
 
   return (
     <div className="App">
-      <Plot mean={mean} std={std} setMean={setMean} setStd={setStd} />
       <Inputs mean={mean} std={std} setMean={setMean} setStd={setStd} />
+      <Plot mean={mean} std={std} setMean={setMean} setStd={setStd} />
     </div>
   );
 }
