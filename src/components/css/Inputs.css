@@ -1,0 +1,17 @@
+.inputs_form {
+    text-align: center;
+}
+
+.input_table {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.label_cell {
+    text-align: left;
+}
+
+.input_cell {
+    text-align: left;
+}
