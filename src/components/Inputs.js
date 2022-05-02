@@ -1,38 +1,44 @@
 import React, { useState } from "react";
+// import axios from "axios";
+
 import "./css/Inputs.css";
 
-function Inputs() {
-	const [mean, setMean] = useState(0);
-	const [std, setStd] = useState(1);
+function Inputs(props) {
+  const [mean, setMean] = useState(props.mean);
+  const [std, setStd] = useState(props.std);
 
-	const updateImage = () => {
-		//
-	}
+  const updateImage = (e) => {
+    e.preventDefault();
+    props.setMean(mean);
+    props.setStd(std);
+  }
 
-	return(
-		<form class="inputs_form" onSubmit={updateImage}>
-			<table class="input_table">
-				<tr class="input_row">
-					<td  class="label_cell">
-						<label for="mean_input">Input mean: </label>
-					</td>
-					<td class="input_cell">
-						<input type="number" name="mean_input" step="0.1" onChange={(e) => {setMean(e.target.value)}}/>
-					</td>
-				</tr>
-				<tr class="input_table">
-					<td class="label_cell">
-						<label for="std_input">Input standard deviation: </label>
-					</td>
-					<td class="input_cell">
-						<input type="number" name="std_input" step="0.1" onChange={(e) => {setStd(e.target.value)}} />
-					</td>
-				</tr>
-			</table>
-			<br/>
-			<button type="submit">Update Plot</button>
-		</form>
-	)
+  return(
+    <form className="inputs_form" onSubmit={updateImage}>
+      <table className="input_table">
+        <tbody>
+          <tr className="input_row">
+            <td  className="label_cell">
+              <label htmlFor="mean_input">Input mean: </label>
+            </td>
+            <td className="input_cell">
+              <input type="number" name="mean_input" step="0.1" onChange={(e) => {setMean(e.target.value)}}/>
+            </td>
+          </tr>
+          <tr className="input_table">
+            <td className="label_cell">
+              <label htmlFor="std_input">Input standard deviation: </label>
+            </td>
+            <td className="input_cell">
+              <input type="number" name="std_input" step="0.1" onChange={(e) => {setStd(e.target.value)}} />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br/>
+      <button type="submit">Update Plot</button>
+    </form>
+  )
 }
 
 export default Inputs;

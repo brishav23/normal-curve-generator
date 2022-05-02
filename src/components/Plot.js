@@ -1,12 +1,29 @@
-import "./css/Plot.css";
 import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function Image() {
+import "./css/Plot.css";
+
+function Plot(props) {
+  const [data, setData] = useState("");
+
+  const getPlot = async () => {
+    const res = await axios.post("http://localhost:4000/makeplot", {
+      mean: props.mean,
+      std: props.std
+    });
+    setData(res.data);
+  }
+
+  useEffect(() => {
+    getPlot();
+  }, [props.mean, props.std]);
+
   return(
-    <div class="plot">
-      <img alt="" src={"http://localhost:4000"} />
+    <div className="plot">
+      <img alt="" src={`data:image/png;base64,${data}`} />
     </div>
   )
 }
 
-export default Image;
+export default Plot;
