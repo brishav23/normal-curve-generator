@@ -9,10 +9,8 @@ function Plot(props) {
   const [loaded, setLoaded] = useState(false);
 
   const getPlot = async () => {
-    const res = await axios.post("http://localhost:4000/makeplot", {
-      mean: props.mean,
-      std: props.std
-    });
+    const params = {mean: props.mean, std: props.std}
+    const res = await axios.post("http://localhost:8000/plot/makeplot", JSON.stringify(params));
     setLoaded(true);
     setData(res.data);
   }
