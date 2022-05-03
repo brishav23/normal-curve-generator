@@ -27,7 +27,6 @@ if __name__ == "__main__":
     fig, ax = plt.subplots(1,1)
     x = np.linspace(xmin, xmax, 100)
     y = scipy.stats.norm.pdf(x,mean,std)
-    ax.set_ylim(0, 1)
     ax.plot(x, y)
 
     # save plot to buffer and write buffer to stdout
